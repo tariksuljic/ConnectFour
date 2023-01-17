@@ -36,13 +36,13 @@ class ConnectFour {
 
     while (true) {
       println(
-        s"Player $currentPlayer turn. Which column do you want to play? (0-${cols - 1})"
+        s"Player $currentPlayer turn. Which column do you want to play? (1-${cols})"
       )
       val col = scala.io.StdIn.readInt()
-      if (col < 0 || col >= cols) {
+      if (col < 1 || col > cols) {
         println("Invalid column, try again.")
       } else {
-        play(col, currentPlayer)
+        play(col-1, currentPlayer)
         if (checkForWinner()) {
           println(s"Player $currentPlayer wins!")
           return
